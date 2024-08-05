@@ -1,0 +1,99 @@
+{{!-- <h1>Edit thông tin sản phẩm</h1>
+
+<form action="/edit/{{product._id}}" method="post">
+    <input type="hidden" name="id" value="{{product._id}}" />
+    <input placeholder="Nhập tên" name="name" value="{{product.name}}" />
+    <input placeholder="Nhập giá" name="price" value="{{product.price}}" />
+    <input placeholder="Nhập số lượng" name="quantity" value="{{product.quantity}}" />
+    <input placeholder="Hình" name="image" value="{{product.image}}" />
+    <input placeholder="Mô tả" name="description" value="{{product.description}}" />
+    <p>Loại sản phẩm</p>
+    <select name="category">
+        {{#each listCate}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <input type="submit" title="Submit" />
+</form> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit thông tin sản phẩm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input,
+        form select {
+            display: block;
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        form p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edit thông tin sản phẩm</h1>
+
+    <form action="/edit/{{product._id}}" method="post">
+        <input type="hidden" name="id" value="{{product._id}}" />
+        <input placeholder="Nhập tên" name="name" value="{{product.name}}" />
+        <input placeholder="Nhập giá" name="price" value="{{product.price}}" />
+        <input placeholder="Nhập số lượng" name="quantity" value="{{product.quantity}}" />
+        <input placeholder="Hình" name="image" value="{{product.image}}" />
+        <input placeholder="Mô tả" name="description" value="{{product.description}}" />
+        <p>Loại sản phẩm</p>
+        <select name="category">
+            {{#each listCate}}
+            <option value="{{_id}}" {{#if (eq (string _id) (string ../product.category._id))}}selected{{/if}}>
+                {{name}}
+            </option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Cập nhật" />
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:nth-of-type(2) {
+            background-color: #28a745;
+        }
+
+        button:nth-of-type(2):hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <form action="/login-register" method="post">
+        <input placeholder="Nhập tên" name="name" />
+        <input placeholder="Nhập password" name="password" type="password"/>
+        <button type="submit" name="action" value="login">Đăng nhập</button>
+        <button type="submit" name="action" value="register">Đăng ký</button>
+    </form>
+</body>
+</html>
