@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var productModel = require("../model/product")
 var categoryModel = require("../model/category")
+const JWT = require('jsonwebtoken');
+const config = require("../config");
 /* GET home page. */
 
 // router.post('/add', function (req, res, next) {

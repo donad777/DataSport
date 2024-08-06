@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var categoryModel = require('./../model/category')
+const JWT = require('jsonwebtoken');
+const config = require("../config");
+const checkToken = require('./checkToken')
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     res.send('respond with a resource');
@@ -42,7 +45,7 @@ router.post('/add', async function (req, res, next) {
  *         description: Lấy thất bại
  */
 //http://192.168.93.25:3000/category-add/get
-router.get('/get', async function (req, res, next) {
+router.get('/get', checkToken, async function (req, res, next) {
     try {
         const getcate = await categoryModel.find()
         res.status(200).json(getcate);
